@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends 'base.html' %}
+{% block content %}
+<h2>Welcome, {{ request.user.username }}</h2>
+<p>Balance: ${{ profile.balance }}</p>
+
+<h3>Your Loans</h3>
+<ul>
+    {% for loan in loans %}
+        <li>Loan Amount: ${{ loan.amount }} | Total Due: ${{ loan.total_due }} | Status: {{ loan.status }}</li>
+    {% endfor %}
+</ul>
+
+<h3>Repayments</h3>
+<ul>
+    {% for repayment in repayments %}
+        <li>Paid: ${{ repayment.amount_paid }} on {{ repayment.date }}</li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'deposit' %}">Deposit Money</a> |
+<a href="{% url 'loan_request' %}">Request Loan</a> |
+<a href="{% url 'repayment' %}">Make Repayment</a>
+{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Deposit Money</h2>
+<form method="POST">
+    {% csrf_token %}
+    <label>Amount:</label>
+    <input type="number" name="amount" required>
+    <button type="submit">Deposit</button>
+</form>
+<a href="{% url 'dashboard' %}">Back to Dashboard</a>
+{% endblock %}

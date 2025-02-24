@@ -1,0 +1,99 @@
+[
+    {
+        "model": "auth.user",
+        "pk": 1,
+        "fields": {
+            "username": "testuser1",
+            "password": "pbkdf2_sha256$260000$abcdefghijklmnopqrst$abcdefghijklmnopqrstuvwxyz1234567890",
+            "email": "testuser1@example.com",
+            "is_active": true
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 2,
+        "fields": {
+            "username": "testuser2",
+            "password": "pbkdf2_sha256$260000$abcdefghijklmnopqrst$abcdefghijklmnopqrstuvwxyz1234567890",
+            "email": "testuser2@example.com",
+            "is_active": true
+        }
+    },
+    {
+        "model": "banking_app.userprofile",
+        "pk": 1,
+        "fields": {
+            "user": 1,
+            "phone": "1234567890",
+            "balance": "10000.00"
+        }
+    },
+    {
+        "model": "banking_app.userprofile",
+        "pk": 2,
+        "fields": {
+            "user": 2,
+            "phone": "9876543210",
+            "balance": "5000.00"
+        }
+    },
+    {
+        "model": "banking_app.account",
+        "pk": 1,
+        "fields": {
+            "user": 1,
+            "account_number": "100001",
+            "account_type": "SAVINGS",
+            "balance": "10000.00"
+        }
+    },
+    {
+        "model": "banking_app.account",
+        "pk": 2,
+        "fields": {
+            "user": 2,
+            "account_number": "100002",
+            "account_type": "CHECKING",
+            "balance": "5000.00"
+        }
+    },
+    {
+        "model": "banking_app.deposit",
+        "pk": 1,
+        "fields": {
+            "user": 1,
+            "amount": "2000.00",
+            "date": "2025-02-24T12:00:00Z"
+        }
+    },
+    {
+        "model": "banking_app.deposit",
+        "pk": 2,
+        "fields": {
+            "user": 2,
+            "amount": "1500.00",
+            "date": "2025-02-24T12:30:00Z"
+        }
+    },
+    {
+        "model": "banking_app.loan",
+        "pk": 1,
+        "fields": {
+            "borrower": 1,
+            "amount": "5000.00",
+            "interest_rate": 5.0,
+            "total_due": "5250.00",
+            "due_date": "2025-06-01",
+            "status": "PENDING"
+        }
+    },
+    {
+        "model": "banking_app.repayment",
+        "pk": 1,
+        "fields": {
+            "loan": 1,
+            "amount_paid": "1000.00",
+            "date": "2025-03-01T14:00:00Z"
+        }
+    }
+]

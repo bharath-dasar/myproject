@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Repayment Money</h2>
+<form method="POST">
+    {% csrf_token %}
+
+    <label>Loan:</label>
+    <select name="loan_id" required>
+        {% for loan in loans %}
+            <option value="{{ loan.id }}">Loan ID: {{ loan.id }} - Due: {{ loan.total_due }}</option>
+        {% endfor %}
+    </select>
+
+    <label>Amount:</label>
+    <input type="number" name="amount_paid" step="0.01" required>
+
+    <button type="submit">Repay</button>
+</form>
+
+<a href="{% url 'dashboard' %}">Back to Dashboard</a>
+{% endblock %}
